@@ -17,3 +17,6 @@ jobs:
 
       - name: Ping Job Market Pipeline
         run: curl -s -o /dev/null -w "%{http_code}" https://job-market-intelligence-y8hygxr7kcmzprkkm9sy3k.streamlit.app
+
+      - name: Ping Clone ChatGPT
+        run: curl -s -o /dev/null -w "%{http_code}" https://clone-chatgpt-9rfxoktk8yglhun9llgsxm.streamlit.app/
