@@ -1,0 +1,19 @@
+name: Keep Streamlit Apps Awake
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  wake-apps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Resume Screener
+        run: curl -s -o /dev/null -w "%{http_code}" https://resume-screener-bxc9bkagkzdfbrvnxkguqy.streamlit.app
+
+      - name: Ping LLMOps Dashboard
+        run: curl -s -o /dev/null -w "%{http_code}" https://llmops-eval-dashboard-b2ttdvtgskbrgcjztjnq8r.streamlit.app
+
+      - name: Ping Job Market Pipeline
+        run: curl -s -o /dev/null -w "%{http_code}" https://job-market-intelligence-y8hygxr7kcmzprkkm9sy3k.streamlit.app
